@@ -3,16 +3,16 @@ session_start();
 header('Content-Type: text/html; charset = utf-8');
 error_reporting(E_ALL);
 
-////////////////////////////////// функция отправки письма
+//отправка письма
 function send_mail($message){
-	$mail_to = '"development-h@ya.ru"';// почта, на которую придет письмо
+	$mail_to = $stringEmail;// почта, на которую придет письмо
 	$subject = 'Заявка с сайта www.домен.ру';// тема письма
 	$headers= 'MIME-Version: 1.0\r\n';// заголовок письма
 	$headers .= 'Content-type: text/html; charset=utf-8\r\n'; // кодировка письма
 	$headers .= 'From: Тестовое письмо <no-reply@test.com>\r\n'; // от кого письмо
 	mail($mail_to, $subject, $message, $headers);// отправляем письмо 
 }
-///////////////////////////////////функция вывода уведомления
+//вывод уведомлений
 function send_notice($msg, $param = 2) {
 	if ($param == 1) {
 		$show = '<div class="message-green"><span class="message-text">'.$msg.'</span></div>';//зеленый фон. успешн.
